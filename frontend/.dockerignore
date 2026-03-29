@@ -1,0 +1,18 @@
+# Node dependencies
+node_modules/
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Build outputs
+build/
+
+# Docs
+README.md
+LICENSE
+
+# IDE & OS files
+.idea/
+.vscode/
+.DS_Store

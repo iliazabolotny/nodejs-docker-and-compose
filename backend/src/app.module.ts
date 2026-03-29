@@ -16,8 +16,7 @@ import { Offer } from './offers/entities/offer.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env',
+      isGlobal: true
     }),
     TypeOrmModule.forRootAsync({
       useFactory: (configService: ConfigService) =>

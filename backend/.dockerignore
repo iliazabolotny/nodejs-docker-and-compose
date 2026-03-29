@@ -1,0 +1,14 @@
+node_modules/
+
+Dockerfile
+docker-compose.yml
+
+dist/
+build/
+
+README.md
+LICENSE
+
+.idea/
+.vscode/
+.DS_Store
