@@ -1,0 +1,51 @@
+version: "3.9"
+services:
+  backend:
+    container_name: kupipodariday-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env
+    ports:
+      - "4000:3000"
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - kupipodari-network
+
+  frontend:
+    container_name: kupipodariday-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    networks:
+      - kupipodari-network
+
+  database:
+    container_name: kupipodariday-db
+    image: postgres:18-alpine
+    env_file:
+      - ./backend/.env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - kupipodari-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U student -d kupipodariday"]
+      interval: 7s
+      timeout: 7s
+      retries: 10
+      start_period: 7s
+
+volumes:
+  postgres-data:
+
+networks:
+  kupipodari-network:
+    driver: bridge
