@@ -2,13 +2,12 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --silent --verbose
+RUN npm ci
 COPY . .
 RUN npm run build
 
 # Stage 2: Production
 FROM nginx:latest
-WORKDIR /usr/share/nginx/html
 # Copy build from Stage 1
 COPY --from=builder /app/build /usr/share/nginx/html
 # Copy config Nginx
