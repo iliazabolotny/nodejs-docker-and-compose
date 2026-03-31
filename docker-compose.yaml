@@ -30,10 +30,10 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U student -d myapp"]
       interval: 10s
-      timeout: 5s
-      retries: 5
+      timeout: 7s
+      retries: 7
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./postgres-data:/app/postgreqsl/data
 
 volumes:
   pgdata:
