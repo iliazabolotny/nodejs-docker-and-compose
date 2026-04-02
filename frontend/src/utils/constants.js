@@ -1,4 +1,4 @@
-export const URL = "https://api.kupipodari9377182201.nomorepartiessite.ru";
+export const URL = "https://api.nestjs6284117204.nomorepartiessite.ru";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
