@@ -7,7 +7,7 @@ services:
     env_file:
       - .env
     environment:
-      PORT: ${BACKEND_PORT}
+      PORT: ${PORT}
       POSTGRES_HOST: postgres
       POSTGRES_PORT: ${POSTGRES_PORT}
       POSTGRES_USERNAME: ${POSTGRES_USER}
