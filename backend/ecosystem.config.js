@@ -20,14 +20,14 @@ module.exports = {
         NODE_ENV: 'production',
         PORT: PORT,
         POSTGRES_HOST: process.env.POSTGRES_HOST || 'postgres',
-        POSTGRES_PORT: POSTGRES_PORT,
-        POSTGRES_USER: process.env.POSTGRES_USERNAME || 'postgres',
+        POSTGRES_PORT: POSTGRES_PORT || 5432,
+        POSTGRES_USER: process.env.POSTGRES_USER || 'student',
         POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD || 'student',
-        POSTGRES_DB: process.env.POSTGRES_DATABASE || 'kupipodariday',
+        POSTGRES_DB: process.env.POSTGRES_DB || 'kupipodariday',
         JWT_SECRET: process.env.JWT_SECRET || 'default_secret_key',
         DATABASE_TYPE: process.env.DATABASE_TYPE || 'postgres',
-        POSTGRES_PGDATA: process.env.POSTGRES_PGDATA || '/var/lib/postgresql/data',
-        DATABASE_SYNCHRONIZE: DATABASE_SYNCHRONIZE
+        POSTGRES_PGDATA: process.env.POSTGRES_PGDATA || '/app/postgreqsl/data',
+        DATABASE_SYNCHRONIZE: DATABASE_SYNCHRONIZE || true
       }
     },
   ],
