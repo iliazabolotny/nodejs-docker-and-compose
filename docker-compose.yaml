@@ -21,6 +21,7 @@ services:
         condition: service_healthy
     volumes:
       - ./backend/logs:/app/logs
+    restart: unless-stopped
 
   frontend:
     build: ./frontend
@@ -29,6 +30,7 @@ services:
       - "8081:80"
     depends_on:
       - backend
+    restart: unless-stopped
 
   postgres:
     image: postgres:18-alpine
@@ -45,7 +47,8 @@ services:
       timeout: 7s
       retries: 7
     volumes:
-      - ./postgres-data:/app/postgreqsl/data
+     - ./postgres-data:/var/lib/postgresql/data  # Исправлен путь к данным PostgreSQL
+    restart: unless-stopped
 
 volumes:
   pgdata:
